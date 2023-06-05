@@ -1,15 +1,16 @@
+import { Link } from "react-router-dom";
 function Nav() {
   return (
     <nav>
-      <a href="/" className="logo">
+      <Link to="/" className="logo">
         Meeting App
-      </a>
+      </Link>
       <div className="link">
-        <a href="/UpcomingMeeting">Upcoming Meetings</a>
-        <a href="/contact">Past Meeting</a>
-        <a href="/add-meetings" className="btn">
+        <Link to="/UpcomingMeeting">Upcoming Meetings</Link>
+        <Link to="/pastMeeting">Past Meeting</Link>
+        <Link to="/add-meetings" className="btn">
           Add Meeting
-        </a>
+        </Link>
       </div>
     </nav>
   );

@@ -12,7 +12,7 @@ function AddMeeting() {
     setLoadingStatus(true);
     let tempMeeting = {
       title: titleInput.current.value,
-      image: imgInput.current.value,
+      img: imgInput.current.value,
       link: linkInput.current.value,
       date: dateInput.current.value,
     };
