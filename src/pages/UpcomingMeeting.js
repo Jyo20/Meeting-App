@@ -22,19 +22,34 @@ function UpcomingMeeting() {
     <div className="pages">
       <h2>Upcoming Meeting</h2>
       <div className="meeting-container">
-        {meetings.map((meeting) => {
-          return (
-            <p>
-              {
-                <MeetingCard
-                  title={meeting.title}
-                  img={meeting.img}
-                  date={meeting.date}
-                />
-              }
-            </p>
-          );
-        })}
+        {meetings
+          .filter((meeting) => {
+            let today = new Date();
+            return new Date(meeting.date) > today;
+          })
+          .map((meeting) => {
+            let date = new Date(meeting.date);
+            const options = {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            };
+
+            let fdate = date.toLocaleDateString("en", options);
+
+            return (
+              <p>
+                {
+                  <MeetingCard
+                    title={meeting.title}
+                    img={meeting.img}
+                    date={fdate}
+                  />
+                }
+              </p>
+            );
+          })}
       </div>
     </div>
   );
